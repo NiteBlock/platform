@@ -32,3 +32,17 @@ module.exports.listDevices = function(req,res){
         res.status(200).json(d)
     })
 }
+
+module.exports.findById = function(req,res){
+    ModelDevice.findById(req.query.id).then(function(d){
+        if(!(d.json() === {})){
+            res.status(200).json(d)
+        } else{
+            res.send("Invalid Device Id")
+            res.status(400)
+        }
+    }).catch(function(e){
+        res.send(e)
+        res.status(500)
+    })
+}
