@@ -26,3 +26,9 @@ module.exports.createDevice = function(req, res){
         console.error(e)
     })
 }
+
+module.exports.listDevices = function(req,res){
+    ModelDevice.find(req.query).then(function(d){
+        res.status(200).json(d)
+    })
+}
