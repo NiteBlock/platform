@@ -6,6 +6,7 @@ const cors = require("cors")
 
 const app = express()
 require("./Models/Device")
+require("./Models/Data")
 
 mongo.connect(process.env.DATABASE)
 
