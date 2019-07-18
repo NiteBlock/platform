@@ -13,6 +13,10 @@ const config = {
     status : {
         type : Number,
         default : 0
+    },
+    colour : {
+        type : String,
+        required : true
     }
 }
 

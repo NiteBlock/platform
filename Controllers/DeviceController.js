@@ -2,16 +2,18 @@ const mongo = require("mongoose")
 const ModelDevice = mongo.model("Device")
 
 module.exports.createDevice = function(req, res){
-    const name = req.body.name  ;
+    const name = req.body.name;
     const type = req.body.type;
-    if(!name){
+    const colour = req.body.colour 
+    if(!name || !colour){
         res.status(400)
-        res.send("No name given.")
+        res.send("No name or colour given.")
         return
     } 
     const device = new ModelDevice({
         name : name,
-        type : type
+        type : type,
+        colour: colour
     })
 
     device.save().then(function(d){
@@ -45,4 +47,14 @@ module.exports.findById = function(req,res){
         res.send(e)
         res.status(500)
     })
+}
+
+module.exports.updateDeviceStatus = function(req,res){
+    res.send(req.body + " " + req.params)
+    const deviceId = req.params.id
+    const deviceStatus = req.params.status
+    if (!deviceId || !deviceStatus){
+        return res.status(400).send("Bad Request")
+    } 
+    ModelDevice.findByIdAndUpdate(deviceId, )
 }
