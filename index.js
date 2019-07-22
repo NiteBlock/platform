@@ -18,7 +18,7 @@ app.use(bodyParser())
 app.use(cors())
 
 app.get("/test", function(req,res){
-    res.send("Connected.")
+    res.status(200).send("Connected.")
 })
 
 const routes = require("./Routes/routes")
