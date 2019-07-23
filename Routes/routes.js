@@ -7,8 +7,8 @@ const dataController = require("../Controllers/DataController")
 router.post("/save-data", dataController.saveData)
 router.post("/create-device", deviceController.createDevice)
 
-router.post("/update-device-status", deviceController.updateDeviceStatus)
-router.post("/update-device-colour", deviceController.updateDeviceColour)
+router.put("/update-device-status", deviceController.updateDeviceStatus)
+router.put("/update-device-colour", deviceController.updateDeviceColour)
 
 router.get("/list-devices", deviceController.listDevices)
 router.get("/find-by-id", deviceController.findById)
