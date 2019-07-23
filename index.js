@@ -14,7 +14,8 @@ mongo.connection.on("error", function(e){
     console.error(e)
 })
 
-app.use(bodyParser())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded())
 app.use(cors())
 
 app.get("/test", function(req,res){
