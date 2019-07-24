@@ -1,6 +1,9 @@
 const mongo = require("mongoose")
 const ModelDevice = mongo.model("Device")
 const nodemailer = require("nodemailer")
+
+require("dotenv").config({path:"../variables.env"})
+
 const transporter = nodemailer.createTransport({
     service : "gmail",
     auth : {
