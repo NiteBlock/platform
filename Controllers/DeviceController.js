@@ -100,6 +100,7 @@ module.exports.updateDeviceColour = function (req, res) {
 
 
 module.exports.sendEmail = function(req, res){
+    console.log("1")
     const deviceId = req.body.id
     const date = new Date()
     const formattedDate = date.toISOString()
@@ -109,8 +110,10 @@ module.exports.sendEmail = function(req, res){
         subject : formattedDate + " || New alert from the device ",
         html: `<p>You got an alert from the device with the id ${deviceId}<p/>`
     }
-
+    console.log("2")
     transporter.sendMail(mailOptions, function(err, info){
+        console.log("3")
+        console.log(err)
         if(err){
             res.status(400).json(err)
         } else{
