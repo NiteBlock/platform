@@ -6,6 +6,7 @@ const dataController = require("../Controllers/DataController")
 
 router.post("/save-data", dataController.saveData)
 router.post("/create-device", deviceController.createDevice)
+router.post("/send-email", deviceController.sendEmail)
 
 router.put("/update-device-status", deviceController.updateDeviceStatus)
 router.put("/update-device-colour", deviceController.updateDeviceColour)

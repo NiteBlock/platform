@@ -1,5 +1,14 @@
 const mongo = require("mongoose")
 const ModelDevice = mongo.model("Device")
+const nodemailer = require("nodemailer")
+const transporter = nodemailer.createTransport({
+    service : "gmail",
+    auth : {
+        user : process.env.GMAILUSER,
+        pass : process.env.GMAILPASS
+    }
+})
+
 
 module.exports.createDevice = function (req, res) {
     const name = req.body.name;
@@ -80,5 +89,26 @@ module.exports.updateDeviceColour = function (req, res) {
             res.status(500).send("Couldn't update.")
         }
 
+    })
+}
+
+
+module.exports.sendEmail = function(req, res){
+    const deviceId = req.body.id
+    const date = new Date()
+    const formattedDate = date.toISOString()
+    const mailOptions = {
+        from : process.env.GMAILUSER,
+        to : "niteblock@gmail.com",
+        subject : formattedDate + " || New alert from the device ",
+        html: `<p>You got an alert from the device with the id ${deviceId}<p/>`
+    }
+
+    transporter.sendMail(mailOptions, function(err, info){
+        if(err){
+            res.status(400).json(err)
+        } else{
+            res.status(200).json(info)
+        }
     })
 }

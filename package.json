@@ -4,7 +4,7 @@
   "description": "A Platform",
   "main": "index.js",
   "scripts": {
-    "start" : "node index.js",
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.6.4",
+    "nodemailer": "^6.3.0",
     "nodemon": "^1.19.1"
   }
 }
