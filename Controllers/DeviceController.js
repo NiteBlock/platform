@@ -1,20 +1,9 @@
 const mongo = require("mongoose")
 const ModelDevice = mongo.model("Device")
-const nodemailer = require("nodemailer")
-
+const sgMail = require("@sendgrid/mail")
 require("dotenv").config({path:"../variables.env"})
 
-const transporter = nodemailer.createTransport({
-    service : "gmail",
-    auth : {
-        user : process.env.GMAILUSER,
-        pass : process.env.GMAILPASS
-    },
-    tls: {
-        rejectUnauthorized: false
-    }
-})
-
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 module.exports.createDevice = function (req, res) {
     const name = req.body.name;
@@ -100,24 +89,23 @@ module.exports.updateDeviceColour = function (req, res) {
 
 
 module.exports.sendEmail = function(req, res){
-    console.log("1")
     const deviceId = req.body.id
     const date = new Date()
     const formattedDate = date.toISOString()
-    const mailOptions = {
-        from : process.env.GMAILUSER,
+    const msg = {
+        from : "alerts@deviceplatform.com",
         to : "niteblock@gmail.com",
         subject : formattedDate + " || New alert from the device ",
+        text: `You got an alert from the device with the id ${deviceId}`,
         html: `<p>You got an alert from the device with the id ${deviceId}<p/>`
     }
-    console.log("2")
-    transporter.sendMail(mailOptions, function(err, info){
-        console.log("3")
-        console.log(err)
-        if(err){
-            res.status(400).json(err)
-        } else{
-            res.status(200).json(info)
+    sgMail.send(msg).then(function(message){
+        console.log(message)
+        if(message){
+            res.status(200).json(message)
         }
+    }).catch(function(err){
+        console.log(err)
+        res.status(400).send(err)
     })
 }
