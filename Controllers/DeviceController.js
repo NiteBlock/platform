@@ -97,7 +97,19 @@ module.exports.sendEmail = function(req, res){
         to : "samuel.bre@techtalents.club",
         subject : formattedDate + " || New alert from the device ",
         text: `You got an alert from the device with the id ${deviceId}`,
-        html: `<head><link type="text/css" href="https://demos.creative-tim.com/argon-design-system/assets/css/argon.css?v=1.0.1" rel="stylesheet"><head/><div class="alert alert-danger alert-dismissible fade show" role="alert">
+        html: `<head>
+        
+        <!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<!-- Icons -->
+<link href="https://demos.creative-tim.com/argon-design-system/assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+<link href="https://demos.creative-tim.com/argon-design-system/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Theme CSS -->
+<link type="text/css" href="https://demos.creative-tim.com/argon-design-system/assets/css/argon.min.css" rel="stylesheet">
+
+        <head/><div class="alert alert-danger alert-dismissible fade show" role="alert">
         <span class="alert-inner--icon"><i class="ni ni-support-16"></i></span>
         <span class="alert-inner--text"><strong>Warning!</strong> Your device got an alert!</span>
 
