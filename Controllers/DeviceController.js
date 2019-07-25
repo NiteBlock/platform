@@ -94,7 +94,7 @@ module.exports.sendEmail = function(req, res){
         name = d.name
         status = d.status
     }).catch(function(err){
-        console.log(e)
+        console.log(err)
         return res.status(400).send("invalid id")
     })
     const date = new Date()
