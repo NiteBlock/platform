@@ -100,9 +100,8 @@ module.exports.sendEmail = function(req, res){
         html: `<head><link type="text/css" href="https://demos.creative-tim.com/argon-design-system/assets/css/argon.min.css?v=1.0.1" rel="stylesheet"><head/><div class="alert alert-danger alert-dismissible fade show" role="alert">
         <span class="alert-inner--icon"><i class="ni ni-support-16"></i></span>
         <span class="alert-inner--text"><strong>Warning!</strong> Your device got an alert!</span>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
+
+    
       </div><h2 class="mb-0">You got an alert from the device with the id ${deviceId}<h2/>`
     }
     sgMail.send(msg).then(function(message){
