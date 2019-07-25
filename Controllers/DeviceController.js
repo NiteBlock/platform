@@ -292,8 +292,8 @@ module.exports.sendEmail = function(req, res){
     }
     sgMail.send(msg).then(function(message){
         console.log(message)
-        if(message){
-            res.status(200).json(message)
+        if(message.json()[0].statusCode == 202){
+            res.status(200).send("EMAIL SENT")
         }
     }).catch(function(err){
         console.log(err)
