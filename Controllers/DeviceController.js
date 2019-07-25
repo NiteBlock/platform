@@ -292,7 +292,7 @@ module.exports.sendEmail = function(req, res){
     }
     sgMail.send(msg).then(function(message){
         console.log(message)
-        if(message.json()[0].statusCode == 202){
+        if(message[0].statusCode == 202){
             res.status(200).send("EMAIL SENT")
         }
     }).catch(function(err){
