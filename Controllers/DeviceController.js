@@ -228,7 +228,7 @@ module.exports.sendEmail = function(req, res){
                                           <td role="modules-container" style="padding:0px 0px 0px 0px; color:#797a7c; text-align:left;" bgcolor="#ffffff" width="100%" align="left"><table class="module preheader preheader-hide" role="module" data-type="preheader" border="0" cellpadding="0" cellspacing="0" width="100%" style="display: none !important; mso-hide: all; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;">
       <tbody><tr>
         <td role="module-content">
-          <p>Ingrid &amp; Anders knows your style!</p>
+          <p>Device Error!!!</p>
         </td>
       </tr>
     </tbody></table><table class="module" role="module" data-type="spacer" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="dcefb5e6-85f3-4570-9b87-d4cdf4579e45">
