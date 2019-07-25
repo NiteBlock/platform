@@ -90,10 +90,11 @@ module.exports.updateDeviceColour = function (req, res) {
 
 module.exports.sendEmail = function(req, res){
     const deviceId = req.body.id
-    ModelDevice.find(deviceId).then(function (d) {
+    ModelDevice.find({_id : deviceId}).then(function (d) {
         name = d.name
         status = d.status
     }).catch(function(err){
+        console.log(e)
         return res.status(400).send("invalid id")
     })
     const date = new Date()
