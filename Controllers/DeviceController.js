@@ -90,7 +90,7 @@ module.exports.updateDeviceColour = function (req, res) {
 
 module.exports.sendEmail = function(req, res){
     const deviceId = req.body.id
-    ModelDevice.find({_id : deviceId}).then(function (d) {
+    ModelDevice.findByID(deviceId).then(function (d) {
         name = d.name
         status = d.status
     }).catch(function(err){
