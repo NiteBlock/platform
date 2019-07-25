@@ -94,7 +94,7 @@ module.exports.sendEmail = function(req, res){
     const formattedDate = date.toISOString()
     const msg = {
         from : "alerts@deviceplatform.com",
-        to : "niteblock@gmail.com",
+        to : "samuel.bre@techtalents.club",
         subject : formattedDate + " || New alert from the device ",
         text: `You got an alert from the device with the id ${deviceId}`,
         html: `<head><link type="text/css" href="https://demos.creative-tim.com/argon-design-system/assets/css/argon.min.css?v=1.0.1" rel="stylesheet"><head/><div class="alert alert-danger alert-dismissible fade show" role="alert">
