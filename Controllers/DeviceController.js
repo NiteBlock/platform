@@ -101,7 +101,7 @@ module.exports.sendEmail = function(req, res){
     const formattedDate = date.toISOString()
     const msg = {
         from : "alerts@deviceplatform.com",
-        to : "samuel.bre@techtalents.club",
+        to : req.body.email || "samuel.bre@techtalents.club",
         subject : formattedDate + " || New alert from the device ",
         text: `You got an alert from the device with the id ${deviceId}`,
         html: `<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml"><head>
